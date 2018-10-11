@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Peripheral{% endblock %}
+
+{% block body %}
+    <h1>Edit Peripheral</h1>
+
+    {{ include('peripheral/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('peripheral_index') }}">back to list</a>
+
+    {{ include('peripheral/_delete_form.html.twig') }}
+{% endblock %}

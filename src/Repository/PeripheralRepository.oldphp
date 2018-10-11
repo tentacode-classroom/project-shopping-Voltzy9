@@ -1,0 +1,50 @@
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: arthur
+ * Date: 27/09/2018
+ * Time: 14:19
+ */
+
+namespace App\Repository;
+
+
+use App\Entity\old;
+
+class old
+{
+    private $peripheral;
+
+    public function __construct()
+    {
+        $peripheral1 = new old();
+        $peripheral1->setId(1);
+        $peripheral1->setName('Souris Razer Imperator');
+
+        $peripheral2 = new old();
+        $peripheral2->setId(2);
+        $peripheral2->setName('Clavier Chroma');
+
+        $peripheral3 = new old();
+        $peripheral3->setId(3);
+        $peripheral3 -> setName('Imperator');
+        $peripheral3-> setType('souris');
+        $peripheral3->setPrice('Tapis de souris Razer BF3');
+
+        $this->peripheral = [
+            $peripheral1,
+            $peripheral2,
+            $peripheral3,
+            ];
+    }
+
+    public function findAll(): array
+    {
+        return $this->peripheral;
+    }
+
+    public function findOneBy(int $id): Product
+    {
+
+    }
+}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1 class="registration-title">Inscription</h1>
+   <div class="form-registration">
+      {{ form_start(form) }}
+          {{ form_row(form.email) }}
+          {{ form_row(form.password) }}
+          {{ form_row(form.firstName) }}
+          {{ form_row(form.lastName) }}
+       {{ form_end(form) }}
+   </div>
+{% endblock %}

@@ -1,13 +1,48 @@
-<html>
-<body>
-    <h1>Accueil</h1>
-    <h2>listes produits</h2>
-    <ul>
-        <li>
-            <a href="{{ path('product', {'productId':product.id}) }}">
-            </a>
+{% extends "/base.html.twig" %}
 
-        </li>
-    </ul>
-</body>
-</html>
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <main role="main">
+        <section class="jumbotron text-center">
+            <div class="container title" >
+                <img src="https://techarea.fr/wp-content/uploads/2018/06/Razer-Chroma-Switches-Header-1068x601.png">
+                <div>
+                   <h1 class="jumbotron-heading">Bienvenue sur e-gamer</h1>
+                   <p class="lead text-muted">E-gamer le site reférence en terme de périphérique gamer</p>
+                   <p>
+                       <a href="#" class="btn btn-primary my-2">Voir le shop</a>
+                   </p>
+                </div>
+            </div>
+        </section>
+        <div class="album py-5 bg-light">
+            <div class="container homepage">
+            {% for product in peripherals %}
+               {# {{ dump(product) }}#}
+                <div class="row">
+                    <div>
+                        <div class="card mb-4 shadow-sm">
+                            <img src="{{ product.url }}">
+                                <div class="card-body">
+                                <p class="card-text">{{  product.name }} {{ product.brand }}</p>
+                                <p class="text-type">{{ product.category }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href={{ path('product', {'productId':product.id})}} >
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+                                        </a>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Ajouter au panier</button>
+                                    </div>
+                                    <small class="text-muted">{{ product.price }}€</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

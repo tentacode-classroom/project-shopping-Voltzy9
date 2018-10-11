@@ -4,31 +4,33 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use App\Repository\PeripheralRepository;
+use App\Entity\Peripheral;
 
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product/{productName}", name="product")
+     * @Route("/product/{productId}", name="product")
      */
-    public function index(int $productId)
+
+    public function show($productId)
     {
-        $product = new Product();
-        $product -> id = $productId;
-        $product -> name = 'Clavier';
+        $product = $this->getDoctrine()
+            ->getRepository(Peripheral::class)
+            ->find($productId);
 
-
-        return $this->render('product/detail.html.twig', [
-            'product' => $product
+        if(!$product){
+            throw $this->createNotFoundException(
+                'No product found for this id'.$productId
+            );
+        }
+        return $this->render('product/index.html.twig', [
+            'peripheral' => $product,
         ]);
-    }
-}
-class Product
-{
-    public $id;
-    public $name;
+        //return new Response('Check out this great product '.$product->getName());
 
-    public function upperName()
-    {
-        return strtoupper($this->name);
     }
 }
+
+

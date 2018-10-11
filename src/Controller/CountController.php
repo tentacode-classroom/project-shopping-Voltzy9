@@ -3,23 +3,24 @@
 namespace App\Controller;
 
 use App\Entity\Peripheral;
-use App\Repository\PeripheralRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\PeripheralRepository;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class HomepageController extends AbstractController
+class CountController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/Myaccount", name="count")
      */
     public function index()
     {
         $doctrine = $this->getDoctrine();
         $peripheralRepository = $doctrine->getRepository(Peripheral::class);
-        $peripherals = $peripheralRepository->findAllPeripheral();
+        $peripherals = $peripheralRepository->findAll();
 
-        return $this->render('homepage/index.html.twig', [
+
+        return $this->render('count/index.html.twig', [
             'peripherals' => $peripherals,
         ]);
     }

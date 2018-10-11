@@ -1,3 +1,15 @@
-<html>
-<h1>Voici le catalogue de produits {{ product_id }}</h1>
-</html>
+{% extends "/base.html.twig" %}
+{% block title %}catalogue de produits{% endblock %}
+{% block body %}
+    <img src="{{ peripheral.url }}">
+    <div class="card-body">
+        <p class="card-text">{{  peripheral.name }} {{ peripheral.brand }}<br> {{ peripheral.type }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Ajouter au panier</button>
+            </div>
+            <small class="text-muted">{{ peripheral.price }}€</small>
+        </div>
+    </div>
+    {#<h1> Product {{ peripheral.name }} - {{ peripheral.id }} </h1>#}
+{% endblock %}

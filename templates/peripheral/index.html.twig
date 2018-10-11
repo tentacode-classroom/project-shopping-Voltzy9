@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Peripheral index{% endblock %}
+
+{% block body %}
+    <h1>Peripheral index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Url</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for peripheral in peripherals %}
+            <tr>
+                <td>{{ peripheral.id }}</td>
+                <td>{{ peripheral.type }}</td>
+                <td>{{ peripheral.price }}</td>
+                <td>{{ peripheral.name }}</td>
+                <td>{{ peripheral.brand }}</td>
+                <td>{{ peripheral.url }}</td>
+                <td>
+                    <a href="{{ path('peripheral_show', {'id': peripheral.id}) }}">show</a>
+                    <a href="{{ path('peripheral_edit', {'id': peripheral.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('peripheral_new') }}">Create new</a>
+{% endblock %}

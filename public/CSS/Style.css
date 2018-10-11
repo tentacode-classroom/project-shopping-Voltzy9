@@ -1,0 +1,116 @@
+.jumbotron {
+    padding: 0;
+}
+
+.homepage {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+    grid-row-gap: 15px;
+}
+
+.homepage .row {
+    overflow: hidden;
+    margin: 0;
+}
+.homepage .row > div {
+    width: 100%;
+    height:100%;
+
+}
+
+div.container {
+    max-width:1400px;
+}
+
+.container.title {
+    margin:0;
+    padding:0;
+    padding-top:50vh;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    max-width: none;
+}
+
+.container.title img {
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate( -50%, -50% );
+}
+
+.card.mb-4.shadow-sm img {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+
+}
+.container.title > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.jumbotron-heading {
+    color:white;
+}
+
+.lead.text-muted {
+    color: LightBlue !important;
+}
+
+.card.btn-group button:first-of-type {
+    background-color: #007bff;
+    COlor:white;
+}
+
+.text-type
+{
+    color: blue;
+}
+
+.card.mb-4.shadow-sm img{
+    width:250px;
+}
+
+/*Product Page*/
+.display-4.font-italic{
+    color:white;
+}
+
+.lead.my-3 {
+    color:white;
+}
+
+/*Registration*/
+
+.registration-title
+{
+    text-align: center;
+}
+
+.form-registration
+{
+    width:80%;
+    margin:auto;
+}
+
+/*Page de confirmation*/
+
+.confirmation-top{
+    text-align:center;
+}
+
+/*Page de Login*/
+
+.form-login
+{
+    diplay:flex;
+    width:50%;
+    margin: auto;
+    flex-direction: column;
+}
